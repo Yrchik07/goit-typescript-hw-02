@@ -1,31 +1,32 @@
 import { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import css from './SearchBar.module.css'
+import css from './SearchBar.module.css';
 const SearchBar = ({ onSubmit }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
 
     if (searchTerm.trim() === '') {
       toast.error('Please enter a search term');
-      return; 
+      return;
     }
     onSubmit(searchTerm);
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setSearchTerm(event.target.value);
   };
 
   return (
     <header className={css.header}>
-
       <form onSubmit={handleSubmit} className={css.form}>
-      <button className={css.submitBtn} type="submit"aria-label="Search">🔍</button>
+        <button className={css.submitBtn} type="submit" aria-label="Search">
+          🔍
+        </button>
 
-        <input className={css.field}
-        
+        <input
+          className={css.field}
           type="text"
           autoComplete="off"
           autoFocus
