@@ -6,16 +6,16 @@ import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
-import { Results } from './types';
+import { Image, Results } from './types';
 
-const App = () => {
+const App: React.FC = () => {
   const [results, setResults] = useState<Results[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>('');
   const [page, setPage] = useState<number>(1);
   const [resultsHasMore, setResultsHasMore] = useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = useState<Results[] | null>(null);
+  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const App = () => {
     fetchPhotosByQuery();
   }, [query, page]);
 
-  const onSubmit = searchTerm => {
+  const onSubmit = (searchTerm: string) => {
     setQuery(searchTerm);
     setPage(1);
     setResultsHasMore(true);
@@ -52,12 +52,12 @@ const App = () => {
   const handleLoadMore = () => {
     setPage(prevPage => prevPage + 1);
   };
-  const openModal = image => {
-    setSelectedImage(image.urls.regular);
+  const openModal = (image: Image): void => {
+    setSelectedImage(image);
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setSelectedImage(null);
     setIsModalOpen(false);
   };

@@ -1,7 +1,11 @@
+import { Image, Results } from '../../types';
 import ImageCard from './ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
-
-const ImageGallery = ({ results, openModal }) => {
+interface ImageGalleryProps {
+  results: Results[];
+  openModal: (image: Image) => void;
+}
+const ImageGallery = ({ results, openModal }:ImageGalleryProps) => {
   return (
     <ul className={css.gallery}>
       {Array.isArray(results) &&

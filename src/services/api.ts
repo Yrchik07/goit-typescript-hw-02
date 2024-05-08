@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+interface Api{
+  requestPhotosByQuery: (query: string, page: number) => Promise<any>;
+}
+
 const ACCESS_KEY = 'vmpj73WjzxomTLySKIx4P3K6GH4i7_4rkUcVcC9a4NU';
 const API_URL = 'https://api.unsplash.com';
 

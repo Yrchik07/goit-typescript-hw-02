@@ -1,7 +1,11 @@
 import Modal from 'react-modal';
 import css from './ImageModal.module.css';
-
-const ImageModal = ({ isOpen, onRequestClose, selectedImage }) => {
+interface ImageModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  selectedImage: string;
+}
+const ImageModal = ({ isOpen, onRequestClose, selectedImage }: ImageModalProps) => {
   return (
     <Modal
       className={css.modal}
