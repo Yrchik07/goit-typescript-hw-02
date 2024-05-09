@@ -1,8 +1,7 @@
+import { Image } from '../../../types';
 import css from './ImageCard.module.css';
 interface ImageCardProps {
-  urls: {
-    small: string;
-  };
+  urls: Image['urls'];
   description?: string;
   onClick: () => void;
 }

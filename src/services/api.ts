@@ -1,15 +1,13 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+import { Results } from '../types';
 
-interface Api{
-  requestPhotosByQuery: (query: string, page: number) => Promise<any>;
-}
 
 const ACCESS_KEY = 'vmpj73WjzxomTLySKIx4P3K6GH4i7_4rkUcVcC9a4NU';
 const API_URL = 'https://api.unsplash.com';
 
-const requestPhotosByQuery = async (query, page) => {
+const requestPhotosByQuery = async (query: string, page: number): Promise<Results> => {
   try {
-    const response = await axios.get(`${API_URL}/search/photos`, {
+    const response: AxiosResponse<Results> = await axios.get(`${API_URL}/search/photos`, {
       params: {
         query: query,
         page: page,

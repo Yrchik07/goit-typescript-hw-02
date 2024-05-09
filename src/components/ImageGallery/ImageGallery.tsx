@@ -1,17 +1,16 @@
+import React from 'react';
 import { Image} from '../../types';
 import ImageCard from './ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
 interface ImageGalleryProps {
-  results: Image[];
+  results: Image[]; 
   openModal: (image: Image) => void;
-  // results: Omit<Image, 'id'>[]; 
-  // openModal: (image: Omit<Image, 'id'>) => void;
-}
-const ImageGallery = ({ results, openModal }:ImageGalleryProps) => {
+}const ImageGallery: React.FC<ImageGalleryProps> = ({ results, openModal }) => {
+  console.log('results: ', results);
   return (
     <ul className={css.gallery}>
       {Array.isArray(results) &&
-        results.map(({ id, urls, description }) => {
+        results.map(({ id, urls, alt_description }) => {
           return (
             <li
              key={id}
@@ -19,9 +18,9 @@ const ImageGallery = ({ results, openModal }:ImageGalleryProps) => {
               >
               <ImageCard
                 urls={urls}
-                description={description}
+                description={alt_description}
                 onClick={() =>
-                  openModal({ urls, alt_description: description })
+                  openModal({id, urls, alt_description})
                 }
               />
             </li>

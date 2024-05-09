@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import { requestPhotosByQuery } from './services/api';
