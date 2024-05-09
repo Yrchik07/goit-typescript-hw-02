@@ -1,9 +1,11 @@
-import { Image, Results } from '../../types';
+import { Image} from '../../types';
 import ImageCard from './ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
 interface ImageGalleryProps {
-  results: Results[];
+  results: Image[];
   openModal: (image: Image) => void;
+  // results: Omit<Image, 'id'>[]; 
+  // openModal: (image: Omit<Image, 'id'>) => void;
 }
 const ImageGallery = ({ results, openModal }:ImageGalleryProps) => {
   return (
@@ -11,7 +13,10 @@ const ImageGallery = ({ results, openModal }:ImageGalleryProps) => {
       {Array.isArray(results) &&
         results.map(({ id, urls, description }) => {
           return (
-            <li key={id} className={css.galleryItem}>
+            <li
+             key={id}
+              className={css.galleryItem}
+              >
               <ImageCard
                 urls={urls}
                 description={description}

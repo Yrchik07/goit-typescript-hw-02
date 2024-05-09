@@ -6,10 +6,10 @@ import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
-import { Image, Results } from './types';
+import { Image} from './types';
 
 const App: React.FC = () => {
-  const [results, setResults] = useState<Results[]>([]);
+  const [results, setResults] = useState<Image[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>('');

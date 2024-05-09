@@ -4,8 +4,8 @@ import css from './SearchBar.module.css';
 interface SearchBarProps {
   onSubmit: (searchTerm: string) => void;
 }
-const SearchBar = ({ onSubmit }:SearchBarProps) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
