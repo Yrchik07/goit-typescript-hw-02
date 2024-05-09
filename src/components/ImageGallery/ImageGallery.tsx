@@ -6,7 +6,6 @@ interface ImageGalleryProps {
   results: Image[]; 
   openModal: (image: Image) => void;
 }const ImageGallery: React.FC<ImageGalleryProps> = ({ results, openModal }) => {
-  console.log('results: ', results);
   return (
     <ul className={css.gallery}>
       {Array.isArray(results) &&
